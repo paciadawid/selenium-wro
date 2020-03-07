@@ -1,26 +1,17 @@
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+import unittest
 
-options = webdriver.ChromeOptions()
-options.add_argument("--start-maximized")
-driver = webdriver.Chrome(options=options)
-driver.get("http://automationpractice.com/index.php")
 
-search_field_selector = (By.ID, "search_query_top")
-search_button_selector = (By.NAME, "submit_search")
-error_box_selector = (By.CSS_SELECTOR, ".alert")
+class MyTestCase(unittest.TestCase):
 
-driver.find_element(*search_field_selector).send_keys("test")
-driver.find_element(*search_button_selector).click()
+    def setUp(self) -> None:
+        pass
 
-# 1 option
-driver.find_element(*error_box_selector)
+    def test_no_results(self):
+        pass
 
-# 2 option
-WebDriverWait(driver, 10).until(
-    EC.visibility_of_element_located(error_box_selector)
-)
+    def tearDown(self) -> None:
+        pass
 
-driver.quit()
+
+if __name__ == '__main__':
+    unittest.main()
