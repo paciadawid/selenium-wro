@@ -8,6 +8,7 @@ verify_ssl = true
 [packages]
 behave = "*"
 pyhamcrest = "*"
+selenium = "*"
 
 [requires]
 python_version = "3.7"
